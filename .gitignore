@@ -118,3 +118,7 @@ dmypy.json
 # vscode
 .vscode/
 
+# files and images
+files/
+images/
+

@@ -86,6 +86,7 @@ h1 {
 
 .contents ul {
     list-style:none;
+    width: 100%;
     margin:0;
     padding:0;
 }
@@ -98,6 +99,7 @@ h1 {
 
 .contents ul li.selected {
     background:#3f3f3f;
+    /* width: 100%; */
 }
 
 .contents ul li:hover {

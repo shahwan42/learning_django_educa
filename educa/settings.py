@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
 
     'courses',
     'students',
+
+    'embed_video',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# after successful login redirect user
+LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
+
+# the base URL to serve uploaded media files
+MEDIA_URL = '/media/'
+# the local path where the files are located
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

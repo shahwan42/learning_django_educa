@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'embed_video',
     'memcache_status',
+    'rest_framework',
 ]
 
 # Middlewares are executed in the given order during the request phase, 
@@ -151,3 +152,10 @@ CACHES = {
 # CACHE_MIDDLEWARE_ALIAS = 'default'
 # CACHE_MIDDLEWARE_SECONDS = 60 * 15  # 15 minutes
 # CACHE_MIDDLEWARE_KEY_PREFIX = 'educa'
+
+
+REST_FRAMEWORK = {
+    # rely on django's permissions system to allow users to CRUD objects while providing read-only
+    # for anonymous users
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly']
+}

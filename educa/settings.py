@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'students',
 
     'embed_video',
+    'memcache_status',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,12 @@ LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 MEDIA_URL = '/media/'
 # the local path where the files are located
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+# you need `memcached` running for this to work
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211'
+    }
+}
